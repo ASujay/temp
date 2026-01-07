@@ -463,3 +463,194 @@
     background: #ffffff !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
+
+
+
+
+
+
+
+/* ================================
+   GLOBAL FIXES (NO HORIZONTAL SCROLL)
+================================ */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container,
+.container-fluid,
+.container-xxl {
+    overflow-x: hidden;
+}
+
+/* Prevent images from causing overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ================================
+   NAVBAR LOGO FIX
+================================ */
+
+/* Base logo styles */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 48px;
+    width: auto;
+    display: none;
+}
+
+/* Desktop default (top of page) */
+.logo-light {
+    display: block;
+}
+
+.logo-dark {
+    display: none;
+}
+
+/* Navbar after scroll */
+.navbar.scrolled {
+    background: #ffffff !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.navbar.scrolled .logo-light {
+    display: none;
+}
+
+.navbar.scrolled .logo-dark {
+    display: block;
+}
+
+/* ================================
+   MOBILE & TABLET FIX
+   (ONLY DARK LOGO)
+================================ */
+@media (max-width: 991px) {
+
+    /* Always white navbar */
+    .navbar {
+        background: #ffffff !important;
+        padding: 12px 16px;
+    }
+
+    /* Show only dark logo */
+    .logo-light {
+        display: none !important;
+    }
+
+    .logo-dark {
+        display: block !important;
+        height: 42px;
+    }
+
+    /* Fix navbar collapse overflow */
+    .navbar-collapse {
+        background: #ffffff;
+        padding: 15px 0;
+    }
+
+    /* Fix toggler alignment */
+    .navbar-toggler {
+        border: none;
+        outline: none;
+    }
+}
+
+/* ================================
+   HERO SECTION FIX
+================================ */
+.hero-header {
+    overflow: hidden;
+}
+
+.hero-header img {
+    max-width: 100%;
+}
+
+/* ================================
+   NEWSLETTER IMAGE FIX
+================================ */
+@media (max-width: 767px) {
+    .newsletter img {
+        display: none;
+    }
+}
+
+/* ================================
+   BACK TO TOP FIX
+================================ */
+.back-to-top {
+    right: 15px;
+    bottom: 15px;
+}
+
+/* ================================
+   FOOTER FIX
+================================ */
+.footer {
+    overflow-x: hidden;
+}
+
+/* ================================
+   FORCE LOGO VISIBILITY ON MOBILE
+================================ */
+
+.navbar {
+    min-height: 70px;
+}
+
+/* Brand container fix */
+.navbar-brand {
+    display: flex !important;
+    align-items: center;
+    height: 100%;
+    z-index: 1001;
+}
+
+/* Logo base */
+.logo {
+    max-height: 44px;
+    width: auto;
+}
+
+/* ================================
+   MOBILE & TABLET (ONLY DARK LOGO)
+================================ */
+@media (max-width: 991px) {
+
+    .navbar {
+        background: #ffffff !important;
+        position: relative;
+    }
+
+    /* HARD FORCE logo visibility */
+    .logo-light {
+        display: none !important;
+    }
+
+    .logo-dark {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Prevent navbar collapse overlap */
+    .navbar-collapse {
+        background: #ffffff;
+        padding: 10px 0;
+    }
+
+    /* Fix toggler stacking */
+    .navbar-toggler {
+        z-index: 1002;
+    }
+}
+
